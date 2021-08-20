@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="A_02_CustomMyBatis" />
+        <module name="A_03_CRUDOperationInMyBatis" />
+        <module name="A_01_Introduction" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="A_01_Introduction" target="8" />
+      <module name="A_02_CustomMyBatis" target="8" />
+      <module name="A_03_CRUDOperationInMyBatis" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
