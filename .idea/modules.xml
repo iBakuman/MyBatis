@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/A_01_Introduction/A_01_Introduction.iml" filepath="$PROJECT_DIR$/A_01_Introduction/A_01_Introduction.iml" />
       <module fileurl="file://$PROJECT_DIR$/A_02_CustomMyBatis/A_02_CustomMyBatis.iml" filepath="$PROJECT_DIR$/A_02_CustomMyBatis/A_02_CustomMyBatis.iml" />
       <module fileurl="file://$PROJECT_DIR$/A_03_CRUDOperationInMyBatis/A_03_CRUDOperationInMyBatis.iml" filepath="$PROJECT_DIR$/A_03_CRUDOperationInMyBatis/A_03_CRUDOperationInMyBatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/A_04_MybatisDAO/A_04_MybatisDAO.iml" filepath="$PROJECT_DIR$/A_04_MybatisDAO/A_04_MybatisDAO.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Mybatis.iml" filepath="$PROJECT_DIR$/.idea/Mybatis.iml" />
     </modules>
   </component>

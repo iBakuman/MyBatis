@@ -6,6 +6,7 @@
         <option value="$PROJECT_DIR$/A_01_Introduction/pom.xml" />
         <option value="$PROJECT_DIR$/A_02_CustomMyBatis/pom.xml" />
         <option value="$PROJECT_DIR$/A_03_CRUDOperationInMyBatis/pom.xml" />
+        <option value="$PROJECT_DIR$/A_04_MybatisDAO/pom.xml" />
       </list>
     </option>
   </component>
