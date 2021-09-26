@@ -1,5 +1,5 @@
 import com.example.dao.IUserDao;
-import com.example.domain.QueryVo;
+import com.example.dao.impl.UserDaoImpl;
 import com.example.domain.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -26,21 +26,17 @@ public class MyBatisTest {
         in = Resources.getResourceAsStream("SqlMapConfig.xml");
         // 2.获取SqlSessionFactory
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
-        // 3.获取SqlSession对象
-        sqlSession = factory.openSession();
-        // 4.获取dao的代理对象
-        userDao = sqlSession.getMapper(IUserDao.class);
+        // 3.使用工程对象，创建dao对象
+        userDao = new UserDaoImpl(factory);
     }
 
     @After// 指示在测试方法之后执行
-    public void destroy() throws Exception {
-        sqlSession.commit();
-        sqlSession.close();
+    public void destory() throws Exception {
         in.close();
     }
 
     @Test
-    public void testFindAll() {
+    public void testFindAll() throws Exception {
         // 5.执行查询所有方法
         List<User> users = userDao.findAll();
         for (User user : users)
@@ -53,7 +49,7 @@ public class MyBatisTest {
      * 测试保存操作
      */
     @Test
-    public void testSaveUser() {
+    public void testSaveUser() throws Exception {
         User user = new User();
         user.setUsername("龚胜辉");
         user.setBirthday(new Date());
@@ -74,7 +70,7 @@ public class MyBatisTest {
         user.setBirthday(new Date());
         user.setSex("男");
         user.setAddress("北京");
-        user.setId(20);
+        user.setId(30);
 
         userDao.updateUser(user);
     }
@@ -84,7 +80,7 @@ public class MyBatisTest {
      */
     @Test
     public void testDelete() {
-        Integer id = 20;
+        Integer id = 30;
         userDao.deleteUser(id);
     }
 
@@ -93,7 +89,7 @@ public class MyBatisTest {
      */
     @Test
     public void testFindById() {
-        Integer id = 30;
+        Integer id = 20;
         User user = userDao.findById(id);
         System.out.println(user);
     }
@@ -103,24 +99,11 @@ public class MyBatisTest {
      */
     @Test
     public void testFindByUsername() {
-        List<User> users = userDao.findByUsername("%王%");
+        List<User> users = userDao.findByUsername("%龚%");
         for (User user : users)
             System.out.println(user);
     }
 
-    /**
-     * 测试使用实体类的包装对象作为查询条件
-     */
-    @Test
-    public void testFindByVo() {
-        QueryVo vo = new QueryVo();
-        User user = new User();
-        vo.setUser(user);
-        user.setUsername("%王%");
-        List<User> users = userDao.findByVo(vo);
-        for (User luser : users)
-            System.out.println(luser);
-    }
 
     /**
      * 测试聚合函数
@@ -131,18 +114,4 @@ public class MyBatisTest {
         System.out.println(total);
     }
 
-    @SuppressWarnings("ResultOfMethodCallIgnored")
-    @Test
-    public void createDir() {
-
-        for (int i = 1; i <= 10; ++i) {
-            String dir = "F:\\Temp\\comic\\";
-            String suffix = String.format("%02d", i);
-            dir += suffix;
-            System.out.println(dir);
-            File file = new File(dir);
-            if (!file.exists())
-                file.mkdir();
-        }
-    }
 }
