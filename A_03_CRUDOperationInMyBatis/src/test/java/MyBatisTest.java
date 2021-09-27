@@ -55,13 +55,13 @@ public class MyBatisTest {
     @Test
     public void testSaveUser() {
         User user = new User();
-        user.setUsername("龚胜辉");
-        user.setBirthday(new Date());
-        user.setSex("男");
-        user.setAddress("湖南");
-        System.out.println("保存前：user.getId() = " + user.getId() + ", user = " + user);
+        user.setUserName("奥特曼");
+        user.setUserBirthday(new Date());
+        user.setUserSex("男");
+        user.setUserAddress("湖南");
+        System.out.println("保存前：user.getId() = " + user.getUserId() + ", user = " + user);
         userDao.saveUser(user);
-        System.out.println("保存后：user.getId() = " + user.getId() + ", user = " + user);
+        System.out.println("保存后：user.getId() = " + user.getUserId() + ", user = " + user);
     }
 
     /**
@@ -70,11 +70,11 @@ public class MyBatisTest {
     @Test
     public void testUpdate() {
         User user = new User();
-        user.setUsername("龚胜辉");
-        user.setBirthday(new Date());
-        user.setSex("男");
-        user.setAddress("北京");
-        user.setId(20);
+        user.setUserName("龚胜辉");
+        user.setUserBirthday(new Date());
+        user.setUserSex("男");
+        user.setUserAddress("北京");
+        user.setUserId(20);
 
         userDao.updateUser(user);
     }
@@ -116,7 +116,7 @@ public class MyBatisTest {
         QueryVo vo = new QueryVo();
         User user = new User();
         vo.setUser(user);
-        user.setUsername("%王%");
+        user.setUserName("%王%");
         List<User> users = userDao.findByVo(vo);
         for (User luser : users)
             System.out.println(luser);

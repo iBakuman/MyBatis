@@ -11,20 +11,26 @@
 
     <!-- 保存用户 -->
     <insert id="saveUser" parameterType="com.example.domain.User">
-        <!--配置插入操作后，获取插入数据的id-->
-        <selectKey keyProperty="id" keyColumn="id" resultType="int" order="AFTER">
+        <!--配置插入操作后，获取插入数据的id
+            keyProperty:        实体类（User类）中接收last_insert_id()函数返回结果的属性
+            keyColumn:          数据库的列名，在Windows平台不区分大小写(可以使用ID)，但是在Linux中区分大小写(只能使用id）
+            resultType:         执行结果的类型，本例中是整型
+            order:              是先执行还是后执行
+        -->
+        <selectKey keyProperty="userId" keyColumn="ID" resultType="int" order="AFTER">
             SELECT last_insert_id();
         </selectKey>
-        INSERT INTO USER(USERNAME, BIRTHDAY, SEX, ADDRESS)
-        VALUES (#{username}, #{birthday}, #{sex}, #{address});
+        <!-- error: There is no getter for property named 'UserBirthday' in 'class com.example.domain.User -->
+        <!-- INSERT INTO USER(USERNAME, BIRTHDAY, SEX, ADDRESS) VALUES (#{userName}, #{UserBirthday}, #{userSex}, #{userAddress}); -->
+         INSERT INTO USER(USERNAME, BIRTHDAY, SEX, ADDRESS) VALUES (#{userName}, #{userBirthday}, #{userSex}, #{userAddress}); <!-- ok -->
     </insert>
 
     <update id="updateUser" parameterType="com.example.domain.User">
         UPDATE USER
-        SET ID=#{id},
-            ADDRESS=#{address},
-            BIRTHDAY=#{birthday}
-        WHERE USERNAME = #{username};
+        SET ID=#{userId},
+            ADDRESS=#{userAddress},
+            BIRTHDAY=#{userBirthday}
+        WHERE USERNAME = #{userName};
     </update>
 
     <delete id="deleteUser" parameterType="int">

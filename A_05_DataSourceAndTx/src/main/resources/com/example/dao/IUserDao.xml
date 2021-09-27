@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.dao.IUserDao">
-    <select id="findAll" resultType="com.example.domain.User">
+    <select id="findAll" resultType="User">
         SELECT *
         FROM USER;
     </select>
@@ -34,13 +34,13 @@
               #{uid};
     </delete>
 
-    <select id="findById" parameterType="int" resultType="com.example.domain.User">
+    <select id="findById" parameterType="int" resultType="user">
         SELECT *
         FROM USER
         WHERE ID = #{userId};
     </select>
 
-    <select id="findByUsername" parameterType="String" resultType="com.example.domain.User">
+    <select id="findByUsername" parameterType="String" resultType="USer">
         SELECT *
         FROM USER
         WHERE USERNAME LIKE #{name};
