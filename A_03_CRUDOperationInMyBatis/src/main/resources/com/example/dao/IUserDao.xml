@@ -41,10 +41,13 @@
     </select>
 
     <select id="findByUsername" parameterType="String" resultType="com.example.domain.User">
+        <!-- 中间生成的PreparedStatement语句是select * from user where username like ? -->
         SELECT *
         FROM USER
         WHERE USERNAME LIKE #{name};
+        <!-- 最终生成的SQL语句是select * from user where username = '%王%' -->
         <!-- SELECT * FROM USER WHERE USERNAME LIKE '%${value}%'; -->
+        <!-- 对比以上两种方式，第一种方式更好 -->
     </select>
 
     <select id="findByVo" parameterType="com.example.domain.QueryVo" resultType="com.example.domain.User">
