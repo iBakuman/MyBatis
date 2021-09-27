@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.dao.IUserDao">
+    <select id="findAll" resultType="User">
+        SELECT *
+        FROM USER;
+    </select>
+
+    <select id="findById" parameterType="int" resultType="user">
+        SELECT *
+        FROM USER
+        WHERE ID = #{userId};
+    </select>
+
+    <select id="findByUsername" parameterType="String" resultType="USer">
+        SELECT *
+        FROM USER
+        WHERE USERNAME LIKE #{name};
+        <!-- SELECT * FROM USER WHERE USERNAME LIKE '%${value}%'; -->
+    </select>
+
+    <select id="findUserByVo" parameterType="QueryVo" resultType="user">
+        select *
+        from user
+        where USERNAME like #{user.username}
+    </select>
+</mapper>
