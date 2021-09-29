@@ -13,27 +13,29 @@
         <result property="sex" column="sex"/>
     </resultMap>
 
-
+    <sql id="defaultSql">
+        <!-- 如果后面还要拼接语句则后面不要加分号，否则会出错 -->
+        <!-- select * from user; -->
+        select * from user
+    </sql>
+    
     <select id="findAll" resultType="User">
-        SELECT *
-        FROM USER;
+        <include refid="defaultSql"/>
     </select>
 
     <select id="findById" parameterType="int" resultType="user">
-        SELECT *
-        FROM USER
+        <include refid="defaultSql"/>
         WHERE ID = #{userId};
     </select>
 
     <select id="findByUsername" parameterType="String" resultType="USer">
-        SELECT *
-        FROM USER
+        <include refid="defaultSql"/>
         WHERE USERNAME LIKE #{name};
         <!-- SELECT * FROM USER WHERE USERNAME LIKE '%${value}%'; -->
     </select>
 
     <select id="findUserByVo" parameterType="QueryVo" resultType="user">
-        select * from user where USERNAME like #{user.username}
+        <include refid="defaultSql"/> where USERNAME like #{user.username}
     </select>
 
     <!-- 根据条件查询
@@ -47,7 +49,7 @@
         </if>
     </select>-->
     <select id="findUserByCondition" parameterType="user" resultType="user">
-        select * from user
+        <include refid="defaultSql"/>
         <where>
             <if test="username != null and address != null">
                 and username = #{username} and address = #{address}
@@ -56,5 +58,17 @@
                 and sex = #{sex}
             </if>
         </where>
+    </select>
+
+    <!-- 根据QueryVo中的ID集合实现查询用户列表 -->
+    <select id="findUserInIds" parameterType="QueryVo" resultType="User">
+        <include refid="defaultSql"/>
+            <if test="ids != null and ids.size() > 0 != null">
+                <where>
+                    <foreach collection="ids" open="and id in (" close=")" item="id" separator=",">
+                        #{id} <!-- 里面写的是上面item的值，上面item值为id，故写#{id} -->
+                    </foreach>
+                </where>
+            </if>
     </select>
 </mapper>

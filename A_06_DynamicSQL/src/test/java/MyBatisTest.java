@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 // 测试MyBatis的CRUD操作
@@ -85,10 +86,25 @@ public class MyBatisTest {
         User user = new User();
         user.setUsername("龚胜辉");
         user.setAddress("北京");
-        user.setSex("女");
+        user.setSex("男");
         List<User> users = userDao.findUserByCondition(user);
         for (User luser: users) {
             System.out.println(luser);
         }
+    }
+
+    /**
+     * 测试foreach标签的使用
+     */
+    @Test
+    public void testFindUserInIds() {
+        QueryVo queryVo = new QueryVo();
+        List<Integer> ids = new ArrayList<>();
+        ids.add(41);
+        ids.add(42);
+        queryVo.setIds(ids);
+        List<User> results = userDao.findUserInIds(queryVo);
+        for(User user : results)
+            System.out.println(user);
     }
 }
