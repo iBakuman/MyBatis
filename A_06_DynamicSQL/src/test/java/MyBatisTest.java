@@ -9,9 +9,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.File;
 import java.io.InputStream;
-import java.util.Date;
 import java.util.List;
 
 // 测试MyBatis的CRUD操作
@@ -77,5 +75,20 @@ public class MyBatisTest {
         List<User> users = userDao.findUserByVo(queryVo);
         for(User luser : users)
             System.out.println(luser);
+    }
+
+    /**
+     * 测试根据条件差
+     */
+    @Test
+    public void testFindUserByCondition(){
+        User user = new User();
+        user.setUsername("龚胜辉");
+        user.setAddress("北京");
+        user.setSex("女");
+        List<User> users = userDao.findUserByCondition(user);
+        for (User luser: users) {
+            System.out.println(luser);
+        }
     }
 }
