@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.dao.IUserDao">
+
+    <sql id="defaultSql">
+        <!-- 如果后面还要拼接语句则后面不要加分号，否则会出错 -->
+        <!-- select * from user; -->
+        select * from user
+    </sql>
+    
+    <select id="findAll" resultType="User">
+        <include refid="defaultSql"/>
+    </select>
+
+    <select id="findById" parameterType="int" resultType="user">
+        <include refid="defaultSql"/>
+        WHERE ID = #{userId};
+    </select>
+</mapper>

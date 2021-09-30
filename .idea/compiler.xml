@@ -6,12 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="A_02_CustomMyBatis" />
         <module name="A_06_DynamicSQL" />
         <module name="A_03_CRUDOperationInMyBatis" />
         <module name="A_01_Introduction" />
-        <module name="A_04_MybatisDAO" />
         <module name="A_05_DataSourceAndTx" />
+        <module name="A_02_CustomMyBatis" />
+        <module name="A_07_one2many" />
+        <module name="A_04_MybatisDAO" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -21,6 +22,7 @@
       <module name="A_04_MybatisDAO" target="8" />
       <module name="A_05_DataSourceAndTx" target="8" />
       <module name="A_06_DynamicSQL" target="8" />
+      <module name="A_07_one2many" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

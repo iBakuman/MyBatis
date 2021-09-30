@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/A_04_MybatisDAO/A_04_MybatisDAO.iml" filepath="$PROJECT_DIR$/A_04_MybatisDAO/A_04_MybatisDAO.iml" />
       <module fileurl="file://$PROJECT_DIR$/A_05_DataSourceAndTx/A_05_DataSourceAndTx.iml" filepath="$PROJECT_DIR$/A_05_DataSourceAndTx/A_05_DataSourceAndTx.iml" />
       <module fileurl="file://$PROJECT_DIR$/A_06_DynamicSQL/A_06_DynamicSQL.iml" filepath="$PROJECT_DIR$/A_06_DynamicSQL/A_06_DynamicSQL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/A_07_One2Many/A_07_one2many.iml" filepath="$PROJECT_DIR$/A_07_One2Many/A_07_one2many.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Mybatis.iml" filepath="$PROJECT_DIR$/.idea/Mybatis.iml" />
     </modules>
   </component>
