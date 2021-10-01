@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/A_05_DataSourceAndTx/pom.xml" />
         <option value="$PROJECT_DIR$/A_06_DynamicSQL/pom.xml" />
         <option value="$PROJECT_DIR$/A_07_One2Many/pom.xml" />
+        <option value="$PROJECT_DIR$/A_08_ManyToMany/pom.xml" />
       </list>
     </option>
   </component>

@@ -13,6 +13,7 @@
         <module name="A_02_CustomMyBatis" />
         <module name="A_07_one2many" />
         <module name="A_04_MybatisDAO" />
+        <module name="A_08_ManyToMany" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -23,6 +24,7 @@
       <module name="A_05_DataSourceAndTx" target="8" />
       <module name="A_06_DynamicSQL" target="8" />
       <module name="A_07_one2many" target="8" />
+      <module name="A_08_ManyToMany" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

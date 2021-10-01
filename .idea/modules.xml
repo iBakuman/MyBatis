@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/A_05_DataSourceAndTx/A_05_DataSourceAndTx.iml" filepath="$PROJECT_DIR$/A_05_DataSourceAndTx/A_05_DataSourceAndTx.iml" />
       <module fileurl="file://$PROJECT_DIR$/A_06_DynamicSQL/A_06_DynamicSQL.iml" filepath="$PROJECT_DIR$/A_06_DynamicSQL/A_06_DynamicSQL.iml" />
       <module fileurl="file://$PROJECT_DIR$/A_07_One2Many/A_07_one2many.iml" filepath="$PROJECT_DIR$/A_07_One2Many/A_07_one2many.iml" />
+      <module fileurl="file://$PROJECT_DIR$/A_08_ManyToMany/A_08_ManyToMany.iml" filepath="$PROJECT_DIR$/A_08_ManyToMany/A_08_ManyToMany.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Mybatis.iml" filepath="$PROJECT_DIR$/.idea/Mybatis.iml" />
     </modules>
   </component>
