@@ -8,9 +8,16 @@
 
     <!--定义user的resultMap-->
     <resultMap id="roleMap" type="Role">
-        <id property="id" column="id"/>
+        <id property="id" column="rid"/>
         <result property="roleName" column="role_name"/>
         <result property="roleDesc" column="role_desc"/>
+        <collection property="users" column="uid" ofType="User">
+            <id property="id" column="id"/>
+            <result property="username" column="username"/>
+            <result property="address" column="address"/>
+            <result property="sex" column="sex"/>
+            <result property="birthday" column="birthday"/>
+        </collection>
     </resultMap>
 
     <sql id="defaultSql">
@@ -18,7 +25,7 @@
     </sql>
 
     <select id="findAll" resultMap="roleMap">
-        <include refid="defaultSql"/>
+        select u.*, r.id as rid, r.ROLE_DESC, r.ROLE_NAME from role r left outer join user_role ur on r.ID = ur.RID left outer join user u on ur.UID = u.ID
     </select>
 
 </mapper>

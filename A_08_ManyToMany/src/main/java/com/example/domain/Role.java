@@ -12,6 +12,16 @@ public class Role implements Serializable {
     private String roleName;
     private String roleDesc;
 
+    private List<User> users;
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -42,6 +52,7 @@ public class Role implements Serializable {
                 "id=" + id +
                 ", roleName='" + roleName + '\'' +
                 ", roleDesc='" + roleDesc + '\'' +
+                ", users=" + users +
                 '}';
     }
 }
