@@ -15,4 +15,8 @@
         <include refid="defaultSql"/>
     </select>
 
+    <select id="findAllAccountWithUser" resultType="AccountUser">
+        select a.*, u.username, u.address from account a, user u where a.uid = u.id;
+    </select>
+
 </mapper>

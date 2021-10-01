@@ -1,6 +1,7 @@
 import com.example.dao.IAccountDao;
 import com.example.dao.IUserDao;
 import com.example.domain.Account;
+import com.example.domain.AccountUser;
 import com.example.domain.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -71,5 +72,15 @@ public class MyBatisTest {
         List<Account> accounts = accountDao.findAll();
         for (Account account : accounts)
             System.out.println(account);
+    }
+
+    /**
+     * 测试通过写子类的方式实现表间是一对一关系的多表查询操作
+     */
+    @Test
+    public void testFindAllAccountWithUser() {
+        List<AccountUser> accountUsers = accountDao.findAllAccountWithUser();
+        for (AccountUser accountUser : accountUsers)
+            System.out.println(accountUser);
     }
 }
