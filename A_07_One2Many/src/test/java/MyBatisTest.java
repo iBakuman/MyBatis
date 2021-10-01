@@ -41,15 +41,17 @@ public class MyBatisTest {
 
     /**
      * 测试查询所有账户
-     *
      * @throws Exception
      */
     @Test
     public void testFindAllUsers() throws Exception {
         // 5.执行查询所有方法
         List<User> users = userDao.findAll();
-        for (User user : users)
+        for (User user : users) {
+            System.out.println("-------------------");
             System.out.println(user);
+            System.out.println(user.getAccounts());
+        }
 
         System.out.println(System.getProperty("java.class.path"));
     }
@@ -85,4 +87,5 @@ public class MyBatisTest {
         for (AccountUser accountUser : accountUsers)
             System.out.println(accountUser);
     }
+
 }

@@ -5,14 +5,30 @@
 
 <mapper namespace="com.example.dao.IUserDao">
 
+    <!--定义user的resultMap-->
+    <resultMap id="userMap" type="User">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="address" column="address"/>
+        <result property="sex" column="sex"/>
+        <!--配置user对象中accounts集合的映射-->
+        <collection property="accounts" ofType="Account">
+            <!--error：column的值不能为id，否则会导致查出来的数据不完整-->
+            <!--<id property="id" column="id"/>-->
+            <id property="id" column="aid"/>
+            <result property="uid" column="uid"/>
+            <result property="money" column="money"/>
+        </collection>
+    </resultMap>
+
     <sql id="defaultSql">
         <!-- 如果后面还要拼接语句则后面不要加分号，否则会出错 -->
         <!-- select * from user; -->
         select * from user
     </sql>
     
-    <select id="findAll" resultType="User">
-        <include refid="defaultSql"/>
+    <select id="findAll" resultMap="userMap">
+        select u.*, a.UID, a.ID as aid, a.MONEY from user u left outer join account a on u.id = a.UID
     </select>
 
     <select id="findById" parameterType="int" resultType="user">
