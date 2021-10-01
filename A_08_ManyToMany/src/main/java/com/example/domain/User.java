@@ -2,6 +2,7 @@ package com.example.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class User implements Serializable {
     private Integer id;
@@ -9,6 +10,16 @@ public class User implements Serializable {
     private String address;
     private String sex;
     private Date birthday;
+
+    private List<Role> roles;
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
 
     public Integer getId() {
         return id;
@@ -58,6 +69,7 @@ public class User implements Serializable {
                 ", address='" + address + '\'' +
                 ", sex='" + sex + '\'' +
                 ", birthday=" + birthday +
+                ", roles=" + roles +
                 '}';
     }
 }

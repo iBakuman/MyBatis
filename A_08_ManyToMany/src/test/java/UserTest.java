@@ -10,7 +10,7 @@ import org.junit.Test;
 import java.io.InputStream;
 import java.util.List;
 
-public class MyBatisTest {
+public class UserTest {
     private InputStream in;
     private SqlSession sqlSession;
     private IUserDao userDao;
@@ -41,7 +41,7 @@ public class MyBatisTest {
         List<User> users = userDao.findAll();
         for (User user : users) {
             System.out.println("-------------------");
-            System.out.println(user);;
+            System.out.println(user);
         }
 
         System.out.println(System.getProperty("java.class.path"));

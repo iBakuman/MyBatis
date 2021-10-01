@@ -11,6 +11,11 @@
         <result property="username" column="username"/>
         <result property="address" column="address"/>
         <result property="sex" column="sex"/>
+        <collection property="roles" column="rid" ofType="Role">
+            <id property="id" column="rid"/>
+            <result property="roleName" column="role_name"/>
+            <result property="roleDesc" column="role_desc"/>
+        </collection>
     </resultMap>
 
     <sql id="defaultSql">
@@ -20,7 +25,7 @@
     </sql>
     
     <select id="findAll" resultMap="userMap">
-        <include refid="defaultSql"/>
+       select u.*, r.ID as rid, r.ROLE_DESC, r.ROLE_NAME from user u left outer join user_role ur on u.id = ur.UID left outer join role r on ur.RID = r.ID
     </select>
 
     <select id="findById" parameterType="int" resultType="User">

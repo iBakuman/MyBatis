@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IUserDao {
     /**
-     * 查询所有用户
+     * 查询所有用户以及其所扮演的角色
      * @return
      */
     List<User> findAll();
