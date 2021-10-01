@@ -65,13 +65,15 @@ public class MyBatisTest {
     }
 
     /**
-     * 测试查询所有账户
+     * 测试建立实体类的方式实现表间是一对一关系的多表查询操作
      */
     @Test
     public void testFindAllAccounts() {
         List<Account> accounts = accountDao.findAll();
-        for (Account account : accounts)
+        for (Account account : accounts) {
             System.out.println(account);
+            System.out.println(account.getUser());
+        }
     }
 
     /**

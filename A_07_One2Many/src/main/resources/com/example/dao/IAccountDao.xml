@@ -5,14 +5,29 @@
 
 <mapper namespace="com.example.dao.IAccountDao">
 
+    <!--定义封装account和user的resultMap-->
+    <resultMap id="accountMap" type="Account">
+        <id property="id" column="aid"/>
+        <result property="uid" column="uid"/>
+        <result property="money" column="money"/>
+        <!--一对一关系映射，配置封装user的内容-->
+        <association property="user" column="uid" javaType="User">
+            <id property="id" column="uid"/>
+            <result property="username" column="username"/>
+            <result property="address" column="address"/>
+            <result property="sex" column="sex"/>
+            <result property="birthday" column="birthday"/>
+        </association>
+    </resultMap>
+
     <sql id="defaultSql">
         <!-- 如果后面还要拼接语句则后面不要加分号，否则会出错 -->
         <!-- select * from user; -->
         select * from account
     </sql>
     
-    <select id="findAll" resultType="Account">
-        <include refid="defaultSql"/>
+    <select id="findAll" resultMap="accountMap">
+        select u.*, a.ID aid, a.UID, a.MONEY from account a, user u where a.uid = u.id
     </select>
 
     <select id="findAllAccountWithUser" resultType="AccountUser">
